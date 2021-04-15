@@ -1,8 +1,6 @@
 #  **scratch3api**
 
 A [python](www.python.com) interface for the [scratch](www.scratch.com) website
-## First Use
-
 ## Getting started
 The first time using the api, you need to run this:
 ```python
@@ -11,24 +9,24 @@ os.system('npm install scratch-api')
 ```
 
 ## Getting Information
-Class scratchapi3.Get has four subclasses:
+Class scratchapi3.Get has three subclasses:
 ### User('username')
 Gets information about a specific user
 
 Example use:
 
-`print(scracth3api.Get.User('PikachuB2005').country())` will print the country set on PikachuB2005's profile
+`print(scratch3api.Get.User('PikachuB2005').country())` will print the country set on PikachuB2005's profile
 
-* `id()` -the users id
+* `id()` -the user's id
 * `scratchteam()` -True or False
 * `joindate()` -When the account was made
 * `status()` -The user's What I'm Working On text
 * `bio()` -The user's About Me text
 * `country()` -What the user has as his/her set country
 * `messages()` -How many new messages the user has
-* `projects()` -A list with dictionaries of the users latest projects.
+* `projects()` -A list of ids for the user's latest projects
 * `comment()` -Dictionary of the last comment on the profile
-* `favorites()` -The ids of the user's favorite projects
+* `favorites()` -A list of ids for the user's favorited projects
 ### Project('Project ID')
 Gets information about a project
 
@@ -59,27 +57,26 @@ Example use:
 * `owner()` -The studio's owner
 * `created()` -When the studio was created
 * `modified()` -When the studio was last changed
-* `followers()` -How many followers a studio has
 
 ## Sending Information
 Requires you to sign in.
-scratch3api.Send('username','password') has one subclass:
-### Comment
-Comments stuff
+scratch3api.Send('username','password') is a collection of random funtions used to send information the the site
 
 Example use:
 
 `scratch3api.Send('PikachuB2005','MyPassword').Profile('griffpatch','Hello!')` will comment 'Hello!' on griffpatch's profile
 
-* `Profile('username','comment')` -Comments on th e user's profile
+These alow you to comment:
+
+* `Profile('username','comment')` -Comments on the user's profile
 * `Project('Project ID','comment')` -Comments on the progect
 * `Studio('Studio ID','comment')` -Comments on the studio
-### These are not part of a subclass
+
 This is used to set a cloud variable
 
 Example use:
 
-`scratch3api.Send.cloud(513819954,'test',108)` will set the cloud variable named ☁test in the project with that id to 108
+`scratch3api.Send('PikachuB2005','MyPassword').cloud(513819954,'test',108)` will set the cloud variable named ☁test in the project with that id to 108
 
 * `cloud('Project ID','Variable Name','Variable Value')`
 
@@ -87,6 +84,6 @@ These are used for following:
 * `follow(username)` -Follows the user
 * `unfollow(username)` -Unfollows the user
 
-Invite someone to a studio:
+Inviting someone to a studio:
 * `invite('Studio ID','username')` -Invites the user to the studio with that id
 
