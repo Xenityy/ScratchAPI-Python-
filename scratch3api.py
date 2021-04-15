@@ -15,11 +15,11 @@ class Get:
     def joindate(self):
       return self.json['history']['joined']
     def status(self):
-      return self.json['status']
+      return self.json['profile']['status']
     def bio(self):
-      return self.json['bio']
+      return self.json['profile']['bio']
     def country(self):
-      return self.json['country']
+      return self.json['profile']['country']
     def messages(self):
       return Get.read('https://api.scratch.mit.edu/users/'+self.user+'/messages/count')['count']
     def projects(self):
@@ -56,7 +56,7 @@ class Get:
       return self.json['author']['username']
     def created(self):
       return self.json['history']['created']
-    def modfied(self):
+    def modified(self):
       return self.json['history']['modified']
     def shared(self):
       return self.json['history']['shared']
@@ -98,10 +98,7 @@ class Send:
   def __init__(self,username,password):
     self.username=username
     self.password=password
-    try:
-      self.scratch=scratchapi.ScratchUserSession(username,password)
-    except:
-      raise Exception('Scratch login failed.')
+    self.scratch=scratchapi.ScratchUserSession(username,password)
   def SetVar(self,projId,name,value):
     Info=[str(projId),'"'+self.username+'"','"'+self.password+'"','"☁ '+name+'"',str(value)]
     with open('new.js','w') as file:
@@ -130,12 +127,9 @@ var scratch = require('scratch-api');
     self.scratch.users.unfollow(user)
   def invite(self,StudioID,user):
     self.scratch._studios_invite(StudioID,user)
-  class Comment:
-    def __init__(self,comment):
-      self.comment=comment
-    def Profile(self,user):
-      self.scratch.users.comment(user,self.comment)
-    def Project(self,ProjID):
-      self.scratch.projects.comment(ProjID,self.comment)
-    def Studio(self,StudioID):
-      self.scratch.studios.send(StudioID,self.comment)
+  def Profile(self,user,comment):
+    self.scratch.users.comment(user,comment)
+  def Project(self,ProjID,comment):
+    self.scratch.projects.comment(ProjID,comment)
+  def Studio(self,StudioID,comment):
+    self.scratch.studios.send(StudioID,comment)
