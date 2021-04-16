@@ -7,7 +7,7 @@ The first time using the api, you need to run this:
 import os
 os.system('npm install scratch-api')
 ```
-
+It can be deleted after it is run.
 ## Getting Information
 Class scratchapi3.Get has three subclasses:
 ### User('username')
