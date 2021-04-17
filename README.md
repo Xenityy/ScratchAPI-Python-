@@ -46,6 +46,7 @@ Example use:
 * `views()` -The project's views
 * `loves()` -The project's loves
 * `favorites()` -The project's favorites
+* `remixes()` -How many remixes the project has
 * `cloud()` -A dictionary of the project's cloud variables and their values
 * `comment()` -A dictionary of the last comment on the project
 ### Studio('Studio ID')
