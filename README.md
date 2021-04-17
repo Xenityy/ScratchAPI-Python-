@@ -7,7 +7,7 @@ The first time using the api, you need to run this:
 import os
 os.system('npm install scratch-api')
 ```
-It can be deleted after it is run.
+
 ## Getting Information
 Class scratchapi3.Get has three subclasses:
 ### User('username')
@@ -27,6 +27,8 @@ Example use:
 * `projects()` -A list of ids for the user's latest projects
 * `comment()` -Dictionary of the last comment on the profile
 * `favorites()` -A list of ids for the user's favorited projects
+* `following()` -A list of the usernames of who the user is following
+* `followers()` -Alist of the usernames of who is following the user
 ### Project('Project ID')
 Gets information about a project
 
