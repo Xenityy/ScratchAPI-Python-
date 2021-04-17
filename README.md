@@ -90,3 +90,6 @@ These are used for following:
 Inviting someone to a studio:
 * `invite('Studio ID','username')` -Invites the user to the studio with that id
 
+# Credits
+* [scratch-api by trumank](https://github.com/trumank/scratch-api)
+* [scratchapi by PolyEdge](https://github.com/PolyEdge/scratchapi/blob/master/scratchapi.py)
