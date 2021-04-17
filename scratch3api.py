@@ -41,6 +41,20 @@ class Get:
       for project in Info:
         ids.append(project['id'])
       return ids
+    def following(self):
+      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/following')
+      Users=[]
+      for User in Info:
+        Users.append(Info[User]['username'])
+      return Users
+    def followers(self):
+      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/followers')
+      Users=[]
+      for User in Info:
+        Users.append(Info[User]['username'])
+      return Users
+    def main(self):
+      return 'Link: https://scratch.mit.edu/users/'+self.user+', Name: '+self.user+', ID: '+str(self.id())+', Scratchteam?: '+str(self.scratchteam())+', Joindate: '+str(self.joindate())
 
   class Project:
     def __init__(self,ProjID):
@@ -81,6 +95,9 @@ class Get:
       Message=Message.strip()
       Author=Info[Info.index('<a href="/users/')+16:Info.index('" id')]
       return json.loads('{"Author":"'+Author+'","Message":"'+Message+'"}')
+    def main(self):
+      return 'Link: https://scratch.mit.edu/projects/'+str(self.ProjID)+', Author: '+self.author()+', Name: '+self.title()+', Views: '+str(self.views())+', Favorites: '+str(self.favorites())+', Loves: '+str(self.loves())
+  
   class Studio:
     def __init__(self,StudioID):
       self.StudioID=StudioID
@@ -93,6 +110,8 @@ class Get:
       return self.json['history']['created']
     def modified(self):
       return self.json['history']['modified']
+    def main(self):
+      return 'Link: https://scratch.mit.edu/studios/'+str(self.StudioID)+', Title: '+self.title()+', Owner: '+self.owner()+', Last modified: '+str(self.modified())
 
 class Send:
   def __init__(self,username,password):
