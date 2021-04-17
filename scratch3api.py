@@ -77,9 +77,11 @@ class Get:
     def views(self):
       return self.json['stats']['views']
     def loves(self):
-      return self.json['stats']['loves']  
+      return self.json['stats']['loves']
     def favorites(self):
       return self.json['stats']['favorites']
+    def remixes(self):
+      return self.json['stats']['remixes']
     def cloud(self):
       self.Log = Get.read('https://clouddata.scratch.mit.edu/logs?projectid='+str(self.ProjID)+'&limit=1000&offset=0')
       self.vars = {}
