@@ -23,7 +23,7 @@ class Get:
     def messages(self):
       return Get.read('https://api.scratch.mit.edu/users/'+self.user+'/messages/count')['count']
     def projects(self):
-      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/projects')
+      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/projects?limit=40')
       ids=[]
       for project in Info:
         ids.append(project['id'])
@@ -42,13 +42,13 @@ class Get:
         ids.append(project['id'])
       return ids
     def following(self):
-      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/following')
+      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/following?limit=40')
       Users=[]
       for User in Info:
         Users.append(Info[User]['username'])
       return Users
     def followers(self):
-      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/followers')
+      Info=Get.read('https://api.scratch.mit.edu/users/'+self.user+'/followers?limit=40')
       Users=[]
       for User in Info:
         Users.append(Info[User]['username'])
