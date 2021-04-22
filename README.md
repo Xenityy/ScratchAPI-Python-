@@ -61,7 +61,7 @@ Example use:
 * `created()` -When the studio was created
 * `modified()` -When the studio was last changed
 
-## Sending Information
+## Sending Information (USE WISELY)
 Requires you to sign in.
 scratch3api.Send('username','password') is a collection of random funtions used to send information the the site
 
@@ -69,8 +69,8 @@ Example use:
 
 `scratch3api.Send('PikachuB2005','MyPassword').Profile('griffpatch','Hello!')` will comment 'Hello!' on griffpatch's profile
 
-These alow you to comment:
-
+These allow you to comment:
+!!! Do not misuse. Scratch Team will ban your account !!!
 * `Profile('username','comment')` -Comments on the user's profile
 * `Project('Project ID','comment')` -Comments on the progect
 * `Studio('Studio ID','comment')` -Comments on the studio
@@ -84,6 +84,7 @@ Example use:
 * `cloud('Project ID','Variable Name','Variable Value')`
 
 These are used for following:
+!!! Scratch Team does not like these being used becuase they change site statistics. Do not spam follow !!!
 * `follow(username)` -Follows the user
 * `unfollow(username)` -Unfollows the user
 
